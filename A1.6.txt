@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Linq;
+
+
+public struct Book
+{
+    public int bookId;
+    public string title;
+    public float price;
+    public enum bookType
+    {
+        Magazine,
+        Novel,
+        ReferenceBook,
+        Miscellaneous
+    }
+    public class _6struct
+    {
+        public static void Output()
+        {
+            int nobook = 1000;
+            Book[] books = new Book[nobook];
+            int i, j, b,n = 1, k = 1;
+            Console.Write("\n\nHow many books you want to enter:\n");
+            b = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\n\nInsert the information of books :\n");
+            Console.Write("-----------------------------------------\n");
+            for (j = 0; j <= b; j++)
+            {
+                Console.WriteLine("Information of book {0} :", k);
+                Console.Write("Input Id of book : ");
+                books[j].bookId = Convert.ToInt32(Console.ReadLine()); 
+                Console.Write("Input the title of book : ");
+                books[j].title = Console.ReadLine();
+                Console.Write("Input the price of book : ");
+                books[j].price = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Input the type of book from the following list \r\n        Magazine,\r\n        Novel,\r\n        ReferenceBook,\r\n        Miscellaneous: ");
+                Console.ReadLine();
+                k++;
+                Console.WriteLine();
+            }
+
+            for (i = 0; i <= n; i++)
+            {
+                Console.WriteLine("{0}: bookId = {1}, Title = {2},price = {3}", i + 1, books[i].bookId, books[i].title, books[i].price);
+                Console.WriteLine();
+            }
+
+        }
+        public static void Main()
+        {
+            _6struct.Output();
+            Console.ReadKey();
+        }
+
+    }
+}
